@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kenneth Roofan Ghoury | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbfaf8;--bg-alt:#f1efe9;--ink:#14140f;--ink-soft:#6b6a63;--accent:#ff5a3c;--accent-soft:#ffe9e2;--line:#e4e1d8;--radius:20px;--maxw:1180px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+section{padding:140px 32px;position:relative;}
+.wrap{max-width:var(--maxw);margin:0 auto;}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-0.03em;}
+.eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:600;color:var(--accent);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--accent);display:inline-block;}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);}
+.reveal.in{opacity:1;transform:translateY(0);}
+header{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(251,250,248,.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+nav.wrap{display:flex;align-items:center;justify-content:space-between;padding:20px 32px;max-width:var(--maxw);}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.3rem;letter-spacing:-.02em;}
+.navlinks{display:flex;align-items:center;gap:36px;list-style:none;}
+.navlinks a{font-size:.9rem;font-weight:500;color:var(--ink-soft);transition:color .2s;position:relative;}
+.navlinks a:not(.cta)::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1.5px;background:var(--ink);transition:width .25s;}
+.navlinks a:not(.cta):hover::after{width:100%;}
+.navlinks a:hover{color:var(--ink);}
+.navlinks a.cta{background:var(--ink);color:#fff;padding:11px 22px;border-radius:100px;transition:background .2s, transform .2s;}
+.navlinks a.cta:hover{background:var(--accent);transform:translateY(-2px);}
+.menu-btn{display:none;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--ink);}
+.dotnav{position:fixed;right:28px;top:50%;transform:translateY(-50%);z-index:150;display:flex;flex-direction:column;gap:16px;}
+.dotnav a{width:9px;height:9px;border-radius:50%;background:var(--line);display:block;position:relative;transition:background .3s, transform .3s;}
+.dotnav a span{position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:.72rem;font-weight:600;color:var(--ink-soft);white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none;}
+.dotnav a:hover span{opacity:1;}
+.dotnav a.active{background:var(--accent);transform:scale(1.4);}
+@media(max-width:900px){.dotnav{display:none;}}
+.hero{min-height:100vh;display:flex;align-items:center;padding:160px 32px 100px;background:radial-gradient(circle at 85% 15%, var(--accent-soft) 0%, transparent 45%), var(--bg);}
+.hero .wrap{width:100%;}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:40px;}
+.hero h1{font-size:clamp(2.8rem,7vw,5.6rem);line-height:.98;}
+.hero h1 .outline{-webkit-text-stroke:1.5px var(--ink);color:transparent;}
+.hero h1 .accent{color:var(--accent);}
+.hero-sub{max-width:340px;}
+.hero-sub p{color:var(--ink-soft);font-size:1.02rem;margin-bottom:26px;}
+.btn-row{display:flex;gap:16px;flex-wrap:wrap;}
+.btn{padding:15px 30px;border-radius:100px;font-weight:600;font-size:.92rem;display:inline-flex;align-items:center;gap:8px;transition:transform .25s, box-shadow .25s, background .25s;}
+.btn-primary{background:var(--ink);color:#fff;}
+.btn-primary:hover{background:var(--accent);transform:translateY(-3px);box-shadow:0 12px 24px rgba(255,90,60,.3);}
+.btn-outline{border:1.5px solid var(--ink);color:var(--ink);}
+.btn-outline:hover{background:var(--ink);color:#fff;transform:translateY(-3px);}
+.marquee{overflow:hidden;white-space:nowrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;margin-top:60px;}
+.marquee-track{display:inline-flex;animation:scroll 22s linear infinite;}
+.marquee span{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:600;color:var(--ink-soft);padding:0 28px;display:inline-flex;align-items:center;gap:28px;}
+.marquee span::after{content:"✦";color:var(--accent);font-size:1rem;}
+@keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.section-head{margin-bottom:60px;display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;}
+.section-head h2{font-size:clamp(2rem,4.2vw,3.2rem);}
+.section-head p{color:var(--ink-soft);max-width:360px;font-size:.98rem;}
+.about{background:var(--bg-alt);}
+.about .wrap{display:grid;grid-template-columns:0.9fr 1.1fr;gap:70px;align-items:start;}
+.about-photo{aspect-ratio:4/5;border-radius:var(--radius);background:linear-gradient(150deg,var(--ink),#3a3a30);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:6rem;font-weight:700;color:var(--accent);position:relative;overflow:hidden;}
+.about-text p{color:var(--ink-soft);margin-bottom:20px;font-size:1.08rem;}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px;}
+.stat{background:var(--bg);border-radius:14px;padding:26px;border:1px solid var(--line);}
+.stat b{font-family:'Space Grotesk',sans-serif;font-size:2.2rem;display:block;color:var(--accent);}
+.stat span{font-size:.82rem;color:var(--ink-soft);}
+@media(max-width:800px){.about .wrap{grid-template-columns:1fr;}}
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+.skill-card{background:var(--bg);padding:40px;transition:background .3s;}
+.skill-card:hover{background:var(--accent-soft);}
+.skill-card h3{font-size:1.15rem;margin-bottom:22px;}
+.tag-row{display:flex;flex-wrap:wrap;gap:10px;}
+.tag{font-size:.82rem;background:var(--bg-alt);color:var(--ink);padding:7px 14px;border-radius:100px;font-weight:600;border:1px solid var(--line);}
+.skill-bar-item{margin-bottom:18px;}
+.skill-bar-item:last-child{margin-bottom:0;}
+.skill-bar-top{display:flex;justify-content:space-between;font-size:.88rem;font-weight:600;margin-bottom:8px;}
+.skill-bar-top span:last-child{color:var(--accent);}
+.skill-bar-track{width:100%;height:8px;border-radius:100px;background:var(--bg-alt);overflow:hidden;}
+.skill-bar-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--accent),var(--ink));width:0;transition:width 1.2s cubic-bezier(.2,.7,.2,1);}
+@media(max-width:900px){.skills-grid{grid-template-columns:1fr;}}
+.projects-list{display:flex;flex-direction:column;gap:2px;}
+.project-row{display:flex;flex-direction:column;gap:14px;padding:34px 20px;border-top:1px solid var(--line);transition:background .3s;position:relative;}
+.project-row:last-child{border-bottom:1px solid var(--line);}
+.project-row:hover{background:var(--bg-alt);}
+.project-row-top{display:grid;grid-template-columns:70px 1fr 44px;align-items:center;gap:24px;}
+.project-row .idx{font-family:'Space Grotesk',sans-serif;color:var(--ink-soft);font-size:.9rem;white-space:nowrap;}
+.project-row h3{font-size:1.5rem;transition:color .3s;}
+.project-row:hover h3{color:var(--accent);}
+.project-row .desc{color:var(--ink-soft);font-size:.95rem;padding-left:94px;max-width:680px;}
+.project-row .tags{display:flex;gap:8px;flex-wrap:wrap;padding-left:94px;}
+.project-row .arrow{justify-self:end;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all .3s;flex-shrink:0;}
+.project-row:hover .arrow{background:var(--ink);color:#fff;border-color:var(--ink);transform:rotate(45deg);}
+@media(max-width:800px){
+.project-row-top{grid-template-columns:36px 1fr 40px;gap:14px;}
+.project-row .desc,.project-row .tags{padding-left:50px;}
+.project-row h3{font-size:1.2rem;}
+}
+.contact{background:var(--ink);color:#fff;}
+.contact .eyebrow{color:var(--accent);}
+.contact .eyebrow::before{background:var(--accent);}
+.contact-inner{text-align:center;max-width:720px;margin:0 auto;}
+.contact h2{font-size:clamp(2.2rem,6vw,4rem);margin-bottom:24px;color:#fff;}
+.contact-inner > p{color:#b9b8b0;font-size:1.1rem;margin-bottom:40px;}
+.contact .btn-primary{background:var(--accent);}
+.contact .btn-primary:hover{background:#fff;color:var(--ink);}
+.contact-links{display:flex;justify-content:center;gap:34px;margin-top:56px;flex-wrap:wrap;}
+.contact-links a{color:#b9b8b0;font-size:.9rem;font-weight:600;border-bottom:1px solid transparent;transition:all .2s;}
+.contact-links a:hover{color:#fff;border-color:#fff;}
+footer{padding:30px 32px;text-align:center;color:var(--ink-soft);font-size:.82rem;background:var(--ink);border-top:1px solid #2a2a22;}
+footer, footer *{color:#7a7a6f;}
+@media(max-width:680px){
+.navlinks{position:fixed;top:68px;left:0;right:0;background:var(--bg);flex-direction:column;padding:26px;gap:20px;align-items:flex-start;border-bottom:1px solid var(--line);transform:translateY(-150%);opacity:0;transition:all .3s;}
+.navlinks.open{transform:translateY(0);opacity:1;}
+.menu-btn{display:block;}
+section{padding:90px 20px;}
+.hero{padding-top:130px;min-height:auto;}
+.hero-top{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<header>
+<nav class="wrap">
+<a href="#home" class="logo">Kenneth<span style="color:var(--accent)">.</span></a>
+<button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+<ul class="navlinks" id="navLinks">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact" class="cta">Let's Talk</a></li>
+</ul>
+</nav>
+</header>
+
+<div class="dotnav" id="dotnav">
+<a href="#home" data-label="Home"><span>Home</span></a>
+<a href="#about" data-label="About"><span>About</span></a>
+<a href="#skills" data-label="Skills"><span>Skills</span></a>
+<a href="#projects" data-label="Projects"><span>Projects</span></a>
+<a href="#contact" data-label="Contact"><span>Contact</span></a>
+</div>
+
+<section class="hero" id="home">
+<div class="wrap">
+<div class="hero-top reveal">
+<div>
+<span class="eyebrow">Hi, my name is</span>
+<h1>Kenneth Roofan <span class="accent">Ghoury</span><br><span class="outline">AI</span> Innovator.</h1>
+</div>
+<div class="hero-sub">
+<p>Young innovator learning AI at AI KIDS Summer Camp, Governor House. I love exploring artificial intelligence, building small projects, and discovering how technology can solve everyday problems.</p>
+<div class="btn-row">
+<a href="#projects" class="btn btn-primary">View Work ↗</a>
+<a href="#contact" class="btn btn-outline">Contact Me</a>
+</div>
+</div>
+</div>
+<div class="marquee reveal">
+<div class="marquee-track">
+<span>Artificial Intelligence</span><span>Python</span><span>Scratch Coding</span><span>Creative Problem Solving</span>
+<span>Artificial Intelligence</span><span>Python</span><span>Scratch Coding</span><span>Creative Problem Solving</span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="about" id="about">
+<div class="wrap">
+<div class="about-photo reveal">KRG</div>
+<div class="about-text reveal">
+<span class="eyebrow">About Me</span>
+<h2 style="font-size:clamp(1.8rem,3.5vw,2.6rem);margin-bottom:22px;">A little about who I am</h2>
+<p>My name is <strong>Kenneth Roofan Ghoury</strong>, and I'm a student at the <strong>AI KIDS Summer Camp</strong> held at Governor House, where I'm learning the fundamentals of artificial intelligence, coding, and creative problem solving.</p>
+<p>I'm curious by nature and enjoy building things — from simple websites to small AI-powered ideas. Camp has taught me how to think logically, work in a team, and turn ideas into real projects.</p>
+<p>My goal is to keep learning new technologies, sharpen my programming skills, and one day build tools that help other kids learn AI just like I'm learning now.</p>
+<div class="about-stats">
+<div class="stat"><b style="font-size:1.6rem;">3198</b><span>Roll Number</span></div>
+<div class="stat"><b style="font-size:1.6rem;">AI KIDS</b><span>Summer Camp Program</span></div>
+<div class="stat"><b style="font-size:1.6rem;">Wednesday</b><span>Camp Slot</span></div>
+<div class="stat"><b style="font-size:1.6rem;">Governor House</b><span>Location</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="skills" id="skills">
+<div class="wrap">
+<div class="section-head reveal">
+<div>
+<span class="eyebrow">Skills</span>
+<h2>What I work with</h2>
+</div>
+<p>A snapshot of the languages, tools, and strengths I bring to every project.</p>
+</div>
+<div class="skills-grid reveal">
+<div class="skill-card">
+<h3>Technical Skills</h3>
+<div class="skill-bar-item">
+<div class="skill-bar-top"><span>Scratch / Block Coding</span><span>85%</span></div>
+<div class="skill-bar-track"><div class="skill-bar-fill" data-fill="85"></div></div>
+</div>
+<div class="skill-bar-item">
+<div class="skill-bar-top"><span>HTML &amp; CSS</span><span>75%</span></div>
+<div class="skill-bar-track"><div class="skill-bar-fill" data-fill="75"></div></div>
+</div>
+<div class="skill-bar-item">
+<div class="skill-bar-top"><span>Python Basics</span><span>70%</span></div>
+<div class="skill-bar-track"><div class="skill-bar-fill" data-fill="70"></div></div>
+</div>
+<div class="skill-bar-item">
+<div class="skill-bar-top"><span>AI &amp; Machine Learning Concepts</span><span>65%</span></div>
+<div class="skill-bar-track"><div class="skill-bar-fill" data-fill="65"></div></div>
+</div>
+</div>
+<div class="skill-card">
+<h3>Soft Skills</h3>
+<div class="tag-row">
+<span class="tag">🧠 Problem Solving</span>
+<span class="tag">🤝 Teamwork</span>
+<span class="tag">🎨 Creativity</span>
+<span class="tag">💬 Communication</span>
+<span class="tag">⏱️ Time Management</span>
+<span class="tag">🔍 Curiosity</span>
+<span class="tag">📚 Fast Learner</span>
+<span class="tag">🎯 Focus</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="projects" id="projects">
+<div class="wrap">
+<div class="section-head reveal">
+<div>
+<span class="eyebrow">Projects</span>
+<h2>Selected work</h2>
+</div>
+<p>A few things I've built while learning at AI KIDS Summer Camp.</p>
+</div>
+<div class="projects-list reveal">
+<a class="project-row" href="https://claude.ai/public/artifacts/0d26c362-33d6-4212-ba6f-062cc6840cef" target="_blank" rel="noopener">
+<div class="project-row-top">
+<span class="idx">🐍 01</span>
+<h3>Orchard Slither 3D</h3>
+<span class="arrow">↗</span>
+</div>
+<div class="desc">A 3D twist on the classic Snake game — guide the snake through an orchard, dodge obstacles, and grow as long as you can. Playable right in the browser.</div>
+<span class="tags"><span class="tag">3D Game</span><span class="tag">JavaScript</span></span>
+</a>
+<a class="project-row" href="#">
+<div class="project-row-top">
+<span class="idx">🎮 02</span>
+<h3>Maze Solver Game</h3>
+<span class="arrow">↗</span>
+</div>
+<div class="desc">An interactive game where a character finds the shortest path through a maze using basic pathfinding logic learned in camp.</div>
+<span class="tags"><span class="tag">Scratch</span><span class="tag">Logic</span></span>
+</a>
+<a class="project-row" href="#">
+<div class="project-row-top">
+<span class="idx">📊 03</span>
+<h3>Image Classifier Demo</h3>
+<span class="arrow">↗</span>
+</div>
+<div class="desc">A beginner AI project using a pre-trained model to sort pictures of animals into categories, presented at camp's final showcase.</div>
+<span class="tags"><span class="tag">Teachable Machine</span><span class="tag">AI</span></span>
+</a>
+</div>
+</div>
+</section>
+
+<section class="contact" id="contact">
+<div class="wrap contact-inner reveal">
+<span class="eyebrow" style="justify-content:center;">Contact</span>
+<h2>Let's build something great together.</h2>
+<p>Have a project in mind or just want to say hello? Reach out — I'd love to hear from you.</p>
+<a href="mailto:kannethchamp@gmail.com" class="btn btn-primary">kannethchamp@gmail.com</a>
+<div class="contact-links">
+<a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://www.instagram.com/k3nxists._/" target="_blank" rel="noopener">Instagram</a>
+<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+</div>
+</div>
+</section>
+
+<section style="padding:70px 32px;background:var(--bg-alt);" class="reveal">
+<div class="wrap" style="text-align:center;max-width:720px;">
+<span class="eyebrow" style="justify-content:center;">With Gratitude 🙏</span>
+<h2 style="font-size:1.5rem;margin-bottom:18px;">Thank You to Our Teachers</h2>
+<p style="color:var(--ink-soft);margin-bottom:10px;">A heartfelt thank you to all my teachers at AI KIDS Summer Camp for their guidance, patience, and inspiration:</p>
+<p style="color:var(--ink-soft);font-size:.92rem;">Sir Ameen Alam (HOD) · Sir Asad (Kids Camp Head) · Sir Shahabuddin · Miss Remsha Javed · Sir Mohammed Asad · Miss Humaiza Naz · Sir Imran &amp; all our wonderful teachers</p>
+</div>
+</section>
+
+<footer>
+© <span id="year"></span> Kenneth Roofan Ghoury. Built with curiosity at AI KIDS Summer Camp.
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
+menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+entries.forEach(e => {
+if(e.isIntersecting){
+e.target.classList.add('in');
+e.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+bar.style.width = bar.getAttribute('data-fill') + '%';
+});
+io.unobserve(e.target);
+}
+});
+}, {threshold:0.15});
+revealEls.forEach(el => io.observe(el));
+const sections = ['home','about','skills','projects','contact'].map(id => document.getElementById(id));
+const dots = document.querySelectorAll('.dotnav a');
+const spy = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if(entry.isIntersecting){
+const id = entry.target.id;
+dots.forEach(d => d.classList.toggle('active', d.getAttribute('href') === '#'+id));
+}
+});
+}, {threshold:0.5});
+sections.forEach(s => s && spy.observe(s));
+</script>
+
+</body>
+</html>
